@@ -32,6 +32,7 @@
 
 ;; load theme
 ;;(load-theme 'darkokai t)
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'monokai t)
 
 ;; bind auto-indent to right brace
@@ -68,6 +69,10 @@
 (add-to-list 'interpreter-mode-alist '("crystal" . crystal-mode))
 
 (add-to-list 'auto-mode-alist '("\\.json$" . json-mode))
+
+(when (eq system-type 'darwin)
+  (require 'ls-lisp)
+  (setq ls-lisp-use-insert-directory-program nil))
 
 (require 'tramp)
 (setq tramp-default-method "ssh")
